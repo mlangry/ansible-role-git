@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: mlangry
+  description: Ansible role for installing and configuring git
+  license:
+    - MIT
+  min_ansible_version: 1.2
+  platforms:
+    - name: Ubuntu
+    - name: Debian
+
+  galaxy_tags:
+    - development
+    - scm
+
+dependencies: []

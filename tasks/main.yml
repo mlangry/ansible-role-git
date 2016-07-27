@@ -1,0 +1,16 @@
+---
+- name: "Installation"
+  apt: name="git" update_cache=yes cache_valid_time=3600 state=latest
+  become: yes
+
+- name: Configuration de git
+  template:
+    src=gitconfig.j2
+    dest={{ git_config_file }}
+  when: git_config is defined
+
+- name: Création du fichier gitignore
+  template:
+    src=gitignore.j2
+    dest="{{ git_config.core.excludesfile }}"
+  when: git_ignore and git_config.core is defined and git_config.core.excludesfile is defined
